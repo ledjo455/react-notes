@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 
 function FormArea({ addNote }) {
+  const d = new Date();
   const [note, setNote] = useState({
     title: "",
     content: "",
+    importance: "",
+    date: d.getFullYear(),
+    shigjeta: "",
   });
 
   const clickHandler = () => {
@@ -13,6 +17,9 @@ function FormArea({ addNote }) {
     setNote({
       title: "",
       content: "",
+      importance: "",
+      date: d.getFullYear(),
+      shigjeta: "",
     });
   };
 
@@ -46,6 +53,23 @@ function FormArea({ addNote }) {
           fullWidth
           autoComplete="off"
         />
+        <TextField
+          name="importance"
+          value={note.importance}
+          onChange={changeHandler}
+          label="Importance"
+          multiline
+          rows={2}
+          fullWidth
+          autoComplete="off"
+        />
+        <select name="shigjeta" value={note.shigjeta} onChange={changeHandler}>
+          <option>None</option>
+          <option value="Marvel">Marvel</option>
+          <option value="DC">DC</option>
+        </select>{" "}
+        <br />
+        <br />
         <Fab
           onClick={clickHandler}
           className="addbutton"

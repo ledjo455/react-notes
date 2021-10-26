@@ -29,6 +29,9 @@ export function App() {
           delNote={delNote}
           title={note.title}
           content={note.content}
+          importance={note.importance}
+          date={note.date}
+          shigjeta={note.shigjeta}
         />
       ))}
       <Footer />
